@@ -1,19 +1,20 @@
-import { useCallback } from "react";
+
 
 function Ex03() {
-    const displayNumbers = (callback:(i:number)=>void, delay: number) => {
-        while (true) {
-            let i = 1;
+    function processArray(arr: number[], callback: (item: number) => void): void {
+        arr.forEach((item, index) => {
             setTimeout(() => {
-                callback(i++);
-            }, delay);
-        }
+                callback(item);
+            }, 1000 * (index + 1));
+        });
     }
+    processArray([1, 2, 3, 4], (item) => {
+        console.log(item);
+    });
 
-    
     return (
         <div>
-
+            Ex03
         </div>
     )
 }
